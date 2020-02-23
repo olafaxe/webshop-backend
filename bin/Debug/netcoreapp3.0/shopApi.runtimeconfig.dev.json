@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\olafa\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\olafa\\.nuget\\packages"
+    ]
+  }
+}
