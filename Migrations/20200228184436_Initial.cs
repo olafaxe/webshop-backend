@@ -120,21 +120,6 @@ namespace shopApi.Migrations
                 values: new object[] { 4, "White" });
 
             migrationBuilder.InsertData(
-                table: "Customers",
-                columns: new[] { "Id", "Email", "UserName" },
-                values: new object[] { 1, "ola@mail.com", "Ola" });
-
-            migrationBuilder.InsertData(
-                table: "Customers",
-                columns: new[] { "Id", "Email", "UserName" },
-                values: new object[] { 2, "anton@mail.com", "Anton" });
-
-            migrationBuilder.InsertData(
-                table: "Customers",
-                columns: new[] { "Id", "Email", "UserName" },
-                values: new object[] { 3, "faxe@mail.com", "Faxe" });
-
-            migrationBuilder.InsertData(
                 table: "Products",
                 columns: new[] { "Id", "Image", "Info", "Name", "Price" },
                 values: new object[] { 1, "https://picsum.photos/id/204/5184/3456", "En sak. Standard", "Sak", 50.0 });
@@ -163,46 +148,6 @@ namespace shopApi.Migrations
                 table: "Products",
                 columns: new[] { "Id", "Image", "Info", "Name", "Price" },
                 values: new object[] { 6, "https://picsum.photos/id/154/3264/2176", "Två udda saker. Precis som namnet beskriver.", "Två udda saker", 99.0 });
-
-            migrationBuilder.InsertData(
-                table: "Orders",
-                columns: new[] { "Id", "CustomerId", "OrderDate", "Price" },
-                values: new object[] { 3, 1, new DateTime(2020, 2, 22, 12, 19, 24, 629, DateTimeKind.Local).AddTicks(3845), 0 });
-
-            migrationBuilder.InsertData(
-                table: "Orders",
-                columns: new[] { "Id", "CustomerId", "OrderDate", "Price" },
-                values: new object[] { 2, 2, new DateTime(2020, 2, 23, 12, 19, 24, 629, DateTimeKind.Local).AddTicks(3736), 0 });
-
-            migrationBuilder.InsertData(
-                table: "Orders",
-                columns: new[] { "Id", "CustomerId", "OrderDate", "Price" },
-                values: new object[] { 1, 3, new DateTime(2020, 2, 3, 12, 19, 24, 626, DateTimeKind.Local).AddTicks(3713), 0 });
-
-            migrationBuilder.InsertData(
-                table: "OrderItem",
-                columns: new[] { "Id", "Color", "OrderId", "Price", "ProductId" },
-                values: new object[] { 5, null, 3, 0, 3 });
-
-            migrationBuilder.InsertData(
-                table: "OrderItem",
-                columns: new[] { "Id", "Color", "OrderId", "Price", "ProductId" },
-                values: new object[] { 4, null, 2, 0, 1 });
-
-            migrationBuilder.InsertData(
-                table: "OrderItem",
-                columns: new[] { "Id", "Color", "OrderId", "Price", "ProductId" },
-                values: new object[] { 1, null, 1, 0, 2 });
-
-            migrationBuilder.InsertData(
-                table: "OrderItem",
-                columns: new[] { "Id", "Color", "OrderId", "Price", "ProductId" },
-                values: new object[] { 2, null, 1, 0, 2 });
-
-            migrationBuilder.InsertData(
-                table: "OrderItem",
-                columns: new[] { "Id", "Color", "OrderId", "Price", "ProductId" },
-                values: new object[] { 3, null, 1, 0, 3 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderItem_OrderId",

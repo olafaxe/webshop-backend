@@ -9,7 +9,7 @@ using shopApi.Contexts;
 namespace shopApi.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20200228111924_Initial")]
+    [Migration("20200228184436_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,26 +69,6 @@ namespace shopApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Email = "ola@mail.com",
-                            UserName = "Ola"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Email = "anton@mail.com",
-                            UserName = "Anton"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Email = "faxe@mail.com",
-                            UserName = "Faxe"
-                        });
                 });
 
             modelBuilder.Entity("shopApi.Models.Order", b =>
@@ -111,29 +91,6 @@ namespace shopApi.Migrations
                     b.HasIndex("CustomerId");
 
                     b.ToTable("Orders");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CustomerId = 3,
-                            OrderDate = new DateTime(2020, 2, 3, 12, 19, 24, 626, DateTimeKind.Local).AddTicks(3713),
-                            Price = 0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CustomerId = 2,
-                            OrderDate = new DateTime(2020, 2, 23, 12, 19, 24, 629, DateTimeKind.Local).AddTicks(3736),
-                            Price = 0
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CustomerId = 1,
-                            OrderDate = new DateTime(2020, 2, 22, 12, 19, 24, 629, DateTimeKind.Local).AddTicks(3845),
-                            Price = 0
-                        });
                 });
 
             modelBuilder.Entity("shopApi.Models.OrderItem", b =>
@@ -161,43 +118,6 @@ namespace shopApi.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("OrderItem");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            OrderId = 1,
-                            Price = 0,
-                            ProductId = 2
-                        },
-                        new
-                        {
-                            Id = 2,
-                            OrderId = 1,
-                            Price = 0,
-                            ProductId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            OrderId = 1,
-                            Price = 0,
-                            ProductId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            OrderId = 2,
-                            Price = 0,
-                            ProductId = 1
-                        },
-                        new
-                        {
-                            Id = 5,
-                            OrderId = 3,
-                            Price = 0,
-                            ProductId = 3
-                        });
                 });
 
             modelBuilder.Entity("shopApi.Models.Product", b =>
