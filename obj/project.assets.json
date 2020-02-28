@@ -5405,11 +5405,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\olafa\\Desktop\\Skola\\Projekt\\webshop\\backend\\shopApi.csproj",
+      "projectUniqueName": "C:\\Users\\olafa\\Desktop\\Skola\\Projekt\\webshop\\webshop-backend\\shopApi.csproj",
       "projectName": "shopApi",
-      "projectPath": "C:\\Users\\olafa\\Desktop\\Skola\\Projekt\\webshop\\backend\\shopApi.csproj",
+      "projectPath": "C:\\Users\\olafa\\Desktop\\Skola\\Projekt\\webshop\\webshop-backend\\shopApi.csproj",
       "packagesPath": "C:\\Users\\olafa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\olafa\\Desktop\\Skola\\Projekt\\webshop\\backend\\obj\\",
+      "outputPath": "C:\\Users\\olafa\\Desktop\\Skola\\Projekt\\webshop\\webshop-backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\olafa\\AppData\\Roaming\\NuGet\\NuGet.Config",

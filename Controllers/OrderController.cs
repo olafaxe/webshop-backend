@@ -29,6 +29,7 @@ namespace shopApi.Controllers
                     .Include(c => c.Customer)
                     .Include(or => or.OrderItem)
                         .ThenInclude(or => or.Product)
+
                     .ToList();
                 return Ok(Orders);
             }
@@ -72,6 +73,7 @@ namespace shopApi.Controllers
                     or.OrderId = o.Id;
                     or.ProductId = item.Id;
                     or.Price = item.Price;
+                    or.Color = item.Color;
                     context.OrderItem.Add(or);
                     context.SaveChanges();
                 }

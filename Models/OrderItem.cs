@@ -9,7 +9,7 @@ namespace shopApi.Models
         public int ProductId { get; set; }
         public Product Product { get; set; }
         public int Price { get; set; }
-        public int SizeId { get; set; }
+        public string Color { get; set; }
         public int OrderId { get; set; }
         [JsonIgnore]
         public Order Order { get; set; }

@@ -14,6 +14,7 @@ namespace shopApi.Contexts
         public DbSet<Order> Orders { get; set; }
 
         public DbSet<OrderItem> OrderItem { get; set; }
+        public DbSet<Color> Colors { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
 
@@ -65,6 +66,7 @@ namespace shopApi.Contexts
                 Name = "Fin sak",
                 Image = "https://picsum.photos/id/131/4698/3166",
                 Info = "En väldigt fin sak. Och billig.",
+
                 Price = 5.00,
 
             });
@@ -77,6 +79,32 @@ namespace shopApi.Contexts
                 Price = 99.00,
 
             });
+
+            //Colors
+            modelBuilder.Entity<Color>().HasData(new Color
+            {
+                Id = 1,
+                ColorName = "Yellow",
+            });
+
+            modelBuilder.Entity<Color>().HasData(new Color
+            {
+                Id = 2,
+                ColorName = "Pink",
+            });
+
+            modelBuilder.Entity<Color>().HasData(new Color
+            {
+                Id = 3,
+                ColorName = "Black",
+            });
+
+            modelBuilder.Entity<Color>().HasData(new Color
+            {
+                Id = 4,
+                ColorName = "White",
+            });
+
 
             // Orderitems
             modelBuilder.Entity<OrderItem>().HasData(new OrderItem

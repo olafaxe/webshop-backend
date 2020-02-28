@@ -9,14 +9,50 @@ using shopApi.Contexts;
 namespace shopApi.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20200223191820_initialMigration")]
-    partial class initialMigration
+    [Migration("20200228111924_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.2");
+
+            modelBuilder.Entity("shopApi.Models.Color", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ColorName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Colors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ColorName = "Yellow"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ColorName = "Pink"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ColorName = "Black"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ColorName = "White"
+                        });
+                });
 
             modelBuilder.Entity("shopApi.Models.Customer", b =>
                 {
@@ -81,21 +117,21 @@ namespace shopApi.Migrations
                         {
                             Id = 1,
                             CustomerId = 3,
-                            OrderDate = new DateTime(2020, 1, 29, 20, 18, 20, 180, DateTimeKind.Local).AddTicks(8839),
+                            OrderDate = new DateTime(2020, 2, 3, 12, 19, 24, 626, DateTimeKind.Local).AddTicks(3713),
                             Price = 0
                         },
                         new
                         {
                             Id = 2,
                             CustomerId = 2,
-                            OrderDate = new DateTime(2020, 2, 18, 20, 18, 20, 183, DateTimeKind.Local).AddTicks(3639),
+                            OrderDate = new DateTime(2020, 2, 23, 12, 19, 24, 629, DateTimeKind.Local).AddTicks(3736),
                             Price = 0
                         },
                         new
                         {
                             Id = 3,
                             CustomerId = 1,
-                            OrderDate = new DateTime(2020, 2, 17, 20, 18, 20, 183, DateTimeKind.Local).AddTicks(3721),
+                            OrderDate = new DateTime(2020, 2, 22, 12, 19, 24, 629, DateTimeKind.Local).AddTicks(3845),
                             Price = 0
                         });
                 });
@@ -106,6 +142,9 @@ namespace shopApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Color")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("OrderId")
                         .HasColumnType("INTEGER");
 
@@ -113,9 +152,6 @@ namespace shopApi.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("ProductId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("SizeId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -132,40 +168,35 @@ namespace shopApi.Migrations
                             Id = 1,
                             OrderId = 1,
                             Price = 0,
-                            ProductId = 2,
-                            SizeId = 0
+                            ProductId = 2
                         },
                         new
                         {
                             Id = 2,
                             OrderId = 1,
                             Price = 0,
-                            ProductId = 2,
-                            SizeId = 0
+                            ProductId = 2
                         },
                         new
                         {
                             Id = 3,
                             OrderId = 1,
                             Price = 0,
-                            ProductId = 3,
-                            SizeId = 0
+                            ProductId = 3
                         },
                         new
                         {
                             Id = 4,
                             OrderId = 2,
                             Price = 0,
-                            ProductId = 1,
-                            SizeId = 0
+                            ProductId = 1
                         },
                         new
                         {
                             Id = 5,
                             OrderId = 3,
                             Price = 0,
-                            ProductId = 3,
-                            SizeId = 0
+                            ProductId = 3
                         });
                 });
 

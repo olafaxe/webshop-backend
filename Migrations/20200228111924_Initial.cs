@@ -3,10 +3,23 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace shopApi.Migrations
 {
-    public partial class initialMigration : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Colors",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ColorName = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Colors", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Customers",
                 columns: table => new
@@ -66,7 +79,7 @@ namespace shopApi.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     ProductId = table.Column<int>(nullable: false),
                     Price = table.Column<int>(nullable: false),
-                    SizeId = table.Column<int>(nullable: false),
+                    Color = table.Column<string>(nullable: true),
                     OrderId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -85,6 +98,26 @@ namespace shopApi.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Colors",
+                columns: new[] { "Id", "ColorName" },
+                values: new object[] { 1, "Yellow" });
+
+            migrationBuilder.InsertData(
+                table: "Colors",
+                columns: new[] { "Id", "ColorName" },
+                values: new object[] { 2, "Pink" });
+
+            migrationBuilder.InsertData(
+                table: "Colors",
+                columns: new[] { "Id", "ColorName" },
+                values: new object[] { 3, "Black" });
+
+            migrationBuilder.InsertData(
+                table: "Colors",
+                columns: new[] { "Id", "ColorName" },
+                values: new object[] { 4, "White" });
 
             migrationBuilder.InsertData(
                 table: "Customers",
@@ -134,42 +167,42 @@ namespace shopApi.Migrations
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "Id", "CustomerId", "OrderDate", "Price" },
-                values: new object[] { 3, 1, new DateTime(2020, 2, 17, 20, 18, 20, 183, DateTimeKind.Local).AddTicks(3721), 0 });
+                values: new object[] { 3, 1, new DateTime(2020, 2, 22, 12, 19, 24, 629, DateTimeKind.Local).AddTicks(3845), 0 });
 
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "Id", "CustomerId", "OrderDate", "Price" },
-                values: new object[] { 2, 2, new DateTime(2020, 2, 18, 20, 18, 20, 183, DateTimeKind.Local).AddTicks(3639), 0 });
+                values: new object[] { 2, 2, new DateTime(2020, 2, 23, 12, 19, 24, 629, DateTimeKind.Local).AddTicks(3736), 0 });
 
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "Id", "CustomerId", "OrderDate", "Price" },
-                values: new object[] { 1, 3, new DateTime(2020, 1, 29, 20, 18, 20, 180, DateTimeKind.Local).AddTicks(8839), 0 });
+                values: new object[] { 1, 3, new DateTime(2020, 2, 3, 12, 19, 24, 626, DateTimeKind.Local).AddTicks(3713), 0 });
 
             migrationBuilder.InsertData(
                 table: "OrderItem",
-                columns: new[] { "Id", "OrderId", "Price", "ProductId", "SizeId" },
-                values: new object[] { 5, 3, 0, 3, 0 });
+                columns: new[] { "Id", "Color", "OrderId", "Price", "ProductId" },
+                values: new object[] { 5, null, 3, 0, 3 });
 
             migrationBuilder.InsertData(
                 table: "OrderItem",
-                columns: new[] { "Id", "OrderId", "Price", "ProductId", "SizeId" },
-                values: new object[] { 4, 2, 0, 1, 0 });
+                columns: new[] { "Id", "Color", "OrderId", "Price", "ProductId" },
+                values: new object[] { 4, null, 2, 0, 1 });
 
             migrationBuilder.InsertData(
                 table: "OrderItem",
-                columns: new[] { "Id", "OrderId", "Price", "ProductId", "SizeId" },
-                values: new object[] { 1, 1, 0, 2, 0 });
+                columns: new[] { "Id", "Color", "OrderId", "Price", "ProductId" },
+                values: new object[] { 1, null, 1, 0, 2 });
 
             migrationBuilder.InsertData(
                 table: "OrderItem",
-                columns: new[] { "Id", "OrderId", "Price", "ProductId", "SizeId" },
-                values: new object[] { 2, 1, 0, 2, 0 });
+                columns: new[] { "Id", "Color", "OrderId", "Price", "ProductId" },
+                values: new object[] { 2, null, 1, 0, 2 });
 
             migrationBuilder.InsertData(
                 table: "OrderItem",
-                columns: new[] { "Id", "OrderId", "Price", "ProductId", "SizeId" },
-                values: new object[] { 3, 1, 0, 3, 0 });
+                columns: new[] { "Id", "Color", "OrderId", "Price", "ProductId" },
+                values: new object[] { 3, null, 1, 0, 3 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderItem_OrderId",
@@ -189,6 +222,9 @@ namespace shopApi.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Colors");
+
             migrationBuilder.DropTable(
                 name: "OrderItem");
 
